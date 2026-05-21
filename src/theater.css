@@ -1,0 +1,153 @@
+:root[data-patreon-theater-mode] {
+  --patreon-theater-width: 100%;
+  --patreon-theater-height: auto;
+  --patreon-theater-aspect: 1.7777778;
+}
+
+[data-patreon-theater-player="true"] {
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    width 160ms ease;
+  position: relative !important;
+}
+
+:root[data-patreon-theater-mode] [data-patreon-theater-player="true"] {
+  background: #000 !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 28%) !important;
+  left: 50% !important;
+  height: var(--patreon-theater-height) !important;
+  max-width: none !important;
+  transform: translateX(-50%) !important;
+  width: var(--patreon-theater-width) !important;
+}
+
+:root[data-patreon-theater-mode] [data-patreon-theater-stage="box"],
+:root[data-patreon-theater-mode] [data-patreon-theater-stage="frame"] {
+  box-sizing: border-box !important;
+  height: var(--patreon-theater-height) !important;
+  max-height: none !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+
+:root[data-patreon-theater-mode] [data-patreon-theater-stage="frame"] {
+  aspect-ratio: var(--patreon-theater-aspect) !important;
+}
+
+:root[data-patreon-theater-mode] [data-patreon-theater-stage="media"] {
+  aspect-ratio: var(--patreon-theater-aspect) !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  height: 100% !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  width: 100% !important;
+}
+
+.patreon-theater-toggle {
+  align-items: center;
+  background: rgb(0 0 0 / 46%);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font: 600 13px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  gap: 8px;
+  height: 32px;
+  justify-content: center;
+  letter-spacing: 0;
+  opacity: 0.85;
+  padding: 0;
+  position: absolute;
+  right: 46px;
+  bottom: 34px;
+  transform: none;
+  transition:
+    background-color 120ms ease,
+    opacity 120ms ease;
+  width: 32px;
+  z-index: 2147483647;
+}
+
+.patreon-theater-toggle__label {
+  display: none;
+}
+
+.patreon-theater-toggle.is-in-native-controls {
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  color: currentColor;
+  height: 32px;
+  justify-content: center;
+  opacity: 1;
+  padding: 0;
+  position: static;
+  transform: none;
+  width: 32px;
+  z-index: auto;
+}
+
+.patreon-theater-toggle.is-in-native-controls:hover {
+  background: rgb(255 255 255 / 14%);
+}
+
+[data-patreon-theater-player="true"]:hover > .patreon-theater-toggle,
+.patreon-theater-toggle:focus-visible,
+.patreon-theater-toggle.is-active {
+  opacity: 1;
+}
+
+.patreon-theater-toggle:hover {
+  background: rgb(0 0 0 / 68%);
+}
+
+.patreon-theater-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.patreon-theater-toggle[hidden] {
+  display: none !important;
+}
+
+:root[data-patreon-theater-fullscreen] .patreon-theater-toggle {
+  display: none !important;
+}
+
+.patreon-theater-toggle__icon {
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 12px;
+  position: relative;
+  width: 18px;
+}
+
+.patreon-theater-toggle__icon::before {
+  background: currentColor;
+  border-radius: 1px;
+  content: "";
+  height: 2px;
+  inset: auto 2px 2px;
+  position: absolute;
+}
+
+.patreon-theater-toggle.is-active {
+  background: rgb(255 255 255 / 22%);
+}
+
+@media (max-width: 720px) {
+  .patreon-theater-toggle {
+    right: 10px;
+    top: 10px;
+  }
+}

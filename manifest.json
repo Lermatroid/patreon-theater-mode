@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Patreon Theater Mode",
+  "description": "Adds a YouTube-style theater mode button to Patreon video posts.",
+  "version": "0.1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.patreon.com/*",
+        "https://patreon.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/theater.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
